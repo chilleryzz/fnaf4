@@ -1,16 +1,5 @@
- 
+## Do not use this as an extension, nothing will happen.
 
-
-> Open this page at [https://chilleryzz.github.io/fnaf4/](https://chilleryzz.github.io/fnaf4/)
-
-## Use as Extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/chilleryzz/fnaf4** and import
 
 ## Edit this project ![Build status badge](https://github.com/chilleryzz/fnaf4/workflows/MakeCode/badge.svg)
 
@@ -23,7 +12,7 @@ To edit this repository in MakeCode.
 ## Blocks preview
 
 This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
+This image may take a few minutes to refresh, and may not work.
 
 ![A rendered view of the blocks](https://github.com/chilleryzz/fnaf4/raw/master/.github/makecode/blocks.png)
 
