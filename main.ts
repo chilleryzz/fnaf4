@@ -36,10 +36,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         room.setImage(assets.image`bedRoomOn0`)
     } else if (facing == 25) {
         room.setImage(assets.image`leftDoorLight`)
-    } else if (false) {
-    	
-    } else if (false) {
-    	
+    } else if (facing == 30) {
+        room.setImage(assets.image`rightDoorLight`)
+    } else if (facing == 35) {
+        room.setImage(assets.image`closetLight`)
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -59,10 +59,10 @@ controller.A.onEvent(ControllerButtonEvent.Released, function () {
         room.setImage(assets.image`bedRoomOff`)
     } else if (facing == 25) {
         room.setImage(assets.image`leftDoor`)
-    } else if (false) {
-    	
-    } else if (false) {
-    	
+    } else if (facing == 30) {
+        room.setImage(assets.image`rightDoor`)
+    } else if (facing == 35) {
+        room.setImage(assets.image`closet`)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
