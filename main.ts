@@ -1,120 +1,79 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (roomDirection == 10) {
-        roomCurrent.destroy()
-        roomDirection4 = 15
-        roomRight = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else if (roomDirection == 15) {
-        roomCurrent.destroy()
-        roomDirection5 = 10
-        room3 = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else {
-    	
+    if (door == 0) {
+        room.setImage(assets.image`frontRoom`)
+        facing = 10
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (roomDirection == 5) {
-    	
-    } else if (roomDirection == 10) {
-    	
-    } else if (roomDirection == 15) {
-    	
+    if (facing == 5) {
+        room.setImage(assets.image`leftDoor`)
+        facing = 25
+        door = 1
+    } else if (facing == 15) {
+        room.setImage(assets.image`rightDoor`)
+        facing = 30
+        door = 1
+    } else if (facing == 25) {
+        room.setImage(assets.image`leftRoom`)
+        door = 0
+        facing = 5
+    } else if (facing == 30) {
+        room.setImage(assets.image`rightRoom`)
+        door = 0
+        facing = 15
+    } else if (facing == 10) {
+        room.setImage(assets.image`closet`)
+        door = 1
+        facing = 35
+    } else if (facing == 35) {
+        room.setImage(assets.image`frontRoom`)
+        door = 0
+        facing = 10
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite == 50) {
-        roomBack.destroy()
-        roomBackLight = sprites.create(assets.image`bedRoomOn0`, SpriteKind.Player)
+    if (facing == 20) {
+        room.setImage(assets.image`bedRoomOn0`)
+    } else if (facing == 25) {
+        room.setImage(assets.image`leftDoorLight`)
+    } else if (false) {
+    	
+    } else if (false) {
+    	
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (roomDirection == 10) {
-        room.destroy()
-        roomCurrent.destroy()
-        roomDirection2 = 5
-        roomCurrent2 = sprites.create(assets.image`leftRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else if (roomDirection == 15) {
-        roomCurrent.destroy()
-        roomDirection3 = 10
-        room2 = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else {
-    	
+    if (door == 0) {
+        room.setImage(assets.image`leftRoom`)
+        facing = 5
     }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (roomDirection == 10) {
-        roomCurrent.destroy()
-        roomDirection4 = 15
-        roomRight = sprites.create(assets.image`rightRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else if (roomDirection == 15) {
-        roomCurrent.destroy()
-        roomDirection5 = 10
-        room3 = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-        mySprite = 0
-    } else {
-    	
+    if (door == 0) {
+        room.setImage(assets.image`rightRoom`)
+        facing = 15
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    if (mySprite == 50) {
-        roomBackLight.destroy()
-        roomBack = sprites.create(assets.image`bedRoomOff`, SpriteKind.Player)
-    }
-})
-function test () {
-    controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-        test()
-        
-    })
-}
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (roomDirection == 10) {
-        room.destroy()
-        roomCurrent.destroy()
-        roomDirection2 = 20
-        animation.runImageAnimation(
-        backAnim,
-        assets.animation`bedAnim`,
-        50,
-        false
-        )
-        roomBack = sprites.create(assets.image`bedRoomOff`, SpriteKind.Projectile)
-        mySprite = 50
-    } else if (roomDirection == 15) {
-        roomCurrent.destroy()
-        roomDirection3 = 20
-        animation.runImageAnimation(
-        backAnim,
-        assets.animation`bedAnim`,
-        50,
-        false
-        )
-        roomBack = sprites.create(assets.image`bedRoomOff`, SpriteKind.Projectile)
-        mySprite = 50
-    } else {
+    if (facing == 20) {
+        room.setImage(assets.image`bedRoomOff`)
+    } else if (facing == 25) {
+        room.setImage(assets.image`leftDoor`)
+    } else if (false) {
+    	
+    } else if (false) {
     	
     }
 })
-let room2: Sprite = null
-let roomDirection3 = 0
-let roomCurrent2: Sprite = null
-let roomDirection2 = 0
-let roomBackLight: Sprite = null
-let roomBack: Sprite = null
-let room3: Sprite = null
-let roomDirection5 = 0
-let mySprite = 0
-let roomRight: Sprite = null
-let roomDirection4 = 0
-let roomDirection = 0
-let roomCurrent: Sprite = null
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (door == 0) {
+        room.setImage(assets.image`bedRoomOff`)
+        facing = 20
+    }
+})
+let facing = 0
 let room: Sprite = null
-let backAnim: Sprite = null
-backAnim = sprites.create(assets.image`bedRoomOff`, SpriteKind.Projectile)
+let door = 0
+door = 0
 room = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-roomCurrent = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
-roomDirection = 10
+facing = 10
