@@ -49,7 +49,22 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             room.setImage(assets.image`bedRoomOn0`)
         }
     } else if (facing == 25) {
-        room.setImage(assets.image`leftDoorLight`)
+        // jumpscare function soon
+        if (boni == 5) {
+            room.setImage(assets.image`leftDoorLightBonnieHiding`)
+            pause(100)
+            room.setImage(assets.image`rightDoorLightBonnieHiding2`)
+            pause(100)
+            room.setImage(assets.image`rightDoorLightBonnieHiding3`)
+            pause(100)
+            room.setImage(assets.image`leftDoorLight`)
+        } else if (boni == 10) {
+        	
+        } else if (boni == 15) {
+        	
+        } else {
+            room.setImage(assets.image`leftDoorLight`)
+        }
     } else if (facing == 30) {
         room.setImage(assets.image`rightDoorLight`)
     } else if (facing == 35) {
@@ -134,14 +149,19 @@ let freddles = 0
 let facing = 0
 let room: Sprite = null
 let door = 0
+let boni = 0
+boni = 0
 door = 0
 room = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
 facing = 10
 forever(function () {
-    pause(20000)
+    pause(200)
+    boni = 5
     freddles += 1
     pause(5000)
+    boni = 10
     freddles += 1
     pause(2000)
+    boni = 15
     freddles += 1
 })
