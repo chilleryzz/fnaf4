@@ -58,8 +58,15 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             room.setImage(assets.image`rightDoorLightBonnieHiding3`)
             pause(100)
             room.setImage(assets.image`leftDoorLight`)
+            boni = 0
         } else if (boni == 10) {
-        	
+            room.setImage(assets.image`leftDoorLightBonnieHiding`)
+            pause(100)
+            room.setImage(assets.image`rightDoorLightBonnieHiding2`)
+            pause(100)
+            room.setImage(assets.image`rightDoorLightBonnieHiding3`)
+            pause(100)
+            room.setImage(assets.image`leftDoorLight`)
         } else if (boni == 15) {
         	
         } else {
@@ -155,13 +162,19 @@ door = 0
 room = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
 facing = 10
 forever(function () {
-    pause(200)
+    pause(randint(20000, 100000))
     boni = 5
-    freddles += 1
-    pause(5000)
+    if (freddles == 0) {
+        freddles += 1
+    }
+    pause(15000)
     boni = 10
-    freddles += 1
-    pause(2000)
+    if (freddles == 1) {
+        freddles += 1
+    }
+    pause(5000)
     boni = 15
-    freddles += 1
+    if (freddles == 2) {
+        freddles += 1
+    }
 })
