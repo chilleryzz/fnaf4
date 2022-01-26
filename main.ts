@@ -1,3 +1,7 @@
+enum RadioMessage {
+    message1 = 49434,
+    nightOver = 15539
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (door == 0) {
         room.setImage(assets.image`frontRoom`)
@@ -72,12 +76,20 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
                         boni = 0
                         room.setImage(assets.image`leftDoorLight`)
                     } else if (boni == 15) {
-                    	
+                        bonHallJump()
                     } else {
                         room.setImage(assets.image`leftDoorLight`)
                     }
                 } else if (facing == 30) {
-                    room.setImage(assets.image`rightDoorLight`)
+                    if (true) {
+                    	
+                    } else if (false) {
+                    	
+                    } else if (false) {
+                    	
+                    } else {
+                        room.setImage(assets.image`rightDoorLight`)
+                    }
                 } else if (facing == 35) {
                     room.setImage(assets.image`closetLight`)
                 }
@@ -111,6 +123,16 @@ function freddlesGo2 () {
     pause(200)
     freddles = 0
     room.setImage(assets.image`bedRoomOn0`)
+}
+radio.onReceivedMessage(RadioMessage.nightOver, function () {
+    room.destroy()
+    clock = sprites.create(assets.image`clock`, SpriteKind.Projectile)
+    music.buzzer.play()
+    pause(5000)
+    game.over(true)
+})
+function bonHallJump () {
+	
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (door == 0) {
@@ -162,6 +184,8 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         leftClosed = 10
     }
 })
+let chica = 0
+let clock: Sprite = null
 let righClosed = 0
 let leftClosed = 0
 let closClosed = 0
@@ -175,19 +199,36 @@ door = 0
 room = sprites.create(assets.image`frontRoom`, SpriteKind.Projectile)
 facing = 10
 forever(function () {
-    pause(randint(0, 100000))
-    boni = 5
+    pause(270000)
+    radio.sendMessage(RadioMessage.nightOver)
+})
+forever(function () {
+    pause(randint(20000, 100000))
+    if (chica == 0) {
+        chica += 5
+    }
+    if (chica == 5) {
+        chica += 5
+    }
+    if (chica == 10) {
+        chica += 5
+    }
+})
+forever(function () {
+    pause(randint(20000, 100000))
     if (freddles == 0) {
         freddles += 1
+    } else if (boni == 0) {
+        boni += 5
     }
-    pause(randint(20000, 100000))
-    boni = 10
     if (freddles == 1) {
         freddles += 1
+    } else if (boni == 5) {
+        boni += 5
     }
-    pause(randint(20000, 100000))
-    boni = 15
     if (freddles == 2) {
         freddles += 1
+    } else if (boni == 10) {
+        boni += 5
     }
 })
