@@ -20,7 +20,6 @@
         "images.g.ts",
         "tilemap.g.jres",
         "tilemap.g.ts",
-        null
     ],
     "testFiles": [
         "test.ts"
